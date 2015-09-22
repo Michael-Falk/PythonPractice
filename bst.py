@@ -75,11 +75,10 @@ class BST(object):
         return [x for x in self._iterpreorder(self.root)]
 
     def _iterpreorder(self, root):
-        yield root.data
-        if root.left is not None:
+        if root is not None:
+            yield root.data
             for x in self._iterpreorder(root.left):
                 yield x
-        if root.right is not None:
             for x in self._iterpreorder(root.right):
                 yield x
 
@@ -87,11 +86,10 @@ class BST(object):
         return [x for x in self._iterinorder(self.root)]
 
     def _iterinorder(self, root):
-        if root.left is not None:
+        if root is not None:
             for x in self._iterinorder(root.left):
                 yield x
-        yield root.data
-        if root.right is not None:
+            yield root.data
             for x in self._iterinorder(root.right):
                 yield x
 
@@ -99,10 +97,9 @@ class BST(object):
         return [x for x in self._iterpostorder(self.root)]
 
     def _iterpostorder(self, root):
-        if root.left is not None:
+        if root is not None:
             for x in self._iterpostorder(root.left):
                 yield x
-        if root.right is not None:
             for x in self._iterpostorder(root.right):
                 yield x
-        yield root.data
+            yield root.data
